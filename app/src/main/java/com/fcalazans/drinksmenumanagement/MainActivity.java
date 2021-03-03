@@ -1,39 +1,32 @@
 package com.fcalazans.drinksmenumanagement;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.fcalazans.drinksmenumanagement.databinding.ActivityMainBinding;
+import com.fcalazans.drinksmenumanagement.adapters.EventAdapter;
 import com.fcalazans.drinksmenumanagement.viewmodel.MainViewModel;
 
 public class MainActivity extends AppCompatActivity {
-
-
-    private ActivityMainBinding binding;
-    private MainViewModel mainViewModel;
+    MainViewModel eventViewModel;
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // initViewModel();
+        RecyclerView recyclerView = findViewById(R.id.event_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
+        final EventAdapter adapter = new EventAdapter();
+        recyclerView.setAdapter(adapter);
 
 
+        eventViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        eventViewModel.getAllEvents().observe(this, adapter::setEvents);
     }
-
-    // New way to use ViewModelProvider.
-    private void initViewModel() {
-        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
-    }
-
-
 }
