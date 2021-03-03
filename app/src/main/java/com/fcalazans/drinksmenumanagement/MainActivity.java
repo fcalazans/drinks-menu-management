@@ -3,7 +3,6 @@ package com.fcalazans.drinksmenumanagement;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
 
-        eventViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        eventViewModel = new MainViewModel(getApplication());
         eventViewModel.getAllEvents().observe(this, adapter::setEvents);
     }
 }
