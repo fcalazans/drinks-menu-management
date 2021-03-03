@@ -12,7 +12,6 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.fcalazans.drinksmenumanagement.database.entities.Event;
 import com.fcalazans.drinksmenumanagement.database.entities.EventDao;
 
-import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -29,25 +28,29 @@ public abstract class DrinksDatabase extends RoomDatabase {
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
 
-            // If you want to keep data through app restarts,
-            // comment out the following block
             databaseWriteExecutor.execute(() -> {
-                // Populate the database in the background.
-                // If you want to start with more words, just add them.
+
                 EventDao dao = INSTANCE.eventDao();
 
-                Event event1 = new Event("Event1",
+                Event event1 = new Event("Event 1",
                         "Some Description",
                         "Wedding",
-                        new Date(20210303),
-                        new Date(20210303));
+                        "20210303",
+                        "20210303");
                 dao.insertEvent(event1);
-                Event event2 = new Event("Event2",
+                Event event2 = new Event("Event 2",
                         "Some Description",
                         "Business",
-                        new Date(20210303),
-                        new Date(20210303));
+                        "20210303",
+                        "20210303");
                 dao.insertEvent(event2);
+
+                Event event3 = new Event("Event 3",
+                        "Another Description",
+                        "Cocktail",
+                        "20210303",
+                        "20210303");
+                dao.insertEvent(event3);
             });
         }
     };
