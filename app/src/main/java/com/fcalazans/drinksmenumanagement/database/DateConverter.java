@@ -7,12 +7,12 @@ import java.util.Date;
 public class DateConverter {
 
     @TypeConverter
-    public static Date toDate(Long timestamp) {
-        return timestamp == null ? null : new Date(timestamp);
+    public static Date toDate(Long dateLong) {
+        return dateLong == null ? null : new Date(dateLong);
     }
 
     @TypeConverter
-    public static Long toTimestamp(Date date) {
+    public static Long fromDate(Date date) {
         return date == null ? null : date.getTime();
     }
 
