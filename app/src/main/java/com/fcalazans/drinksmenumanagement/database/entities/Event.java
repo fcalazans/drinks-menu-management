@@ -3,6 +3,11 @@ package com.fcalazans.drinksmenumanagement.database.entities;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
+import com.fcalazans.drinksmenumanagement.database.DateConverter;
+
+import java.util.Date;
 
 @Entity(tableName = "Event")
 public class Event {
@@ -15,12 +20,14 @@ public class Event {
     @ColumnInfo(name = "event_type")
     public String eventType;
     @ColumnInfo(name = "date_start")
-    public String eventDateStart;
+    @TypeConverters({DateConverter.class})
+    public Date eventDateStart;
     @ColumnInfo(name = "date_end")
-    public String eventDateEnd;
+    @TypeConverters({DateConverter.class})
+    public Date eventDateEnd;
 
 
-    public Event(String eventTitle, String eventDescription, String eventType, String eventDateStart, String eventDateEnd) {
+    public Event(String eventTitle, String eventDescription, String eventType, Date eventDateStart, Date eventDateEnd) {
         this.eventTitle = eventTitle;
         this.eventDescription = eventDescription;
         this.eventType = eventType;
