@@ -10,21 +10,34 @@ import java.util.List;
 
 public class EventRepository {
     private EventDao eventDao;
-    private DrinksDatabase drinksDatabase;
     private LiveData<List<Event>> allEvents;
 
     public EventRepository(Application application) {
-        drinksDatabase = DrinksDatabase.getInstance(application);
+        DrinksDatabase drinksDatabase = DrinksDatabase.getInstance(application);
         eventDao = drinksDatabase.eventDao();
         allEvents = eventDao.getAllEvents();
     }
 
-    // Revise this method.
-    public void insert(Event event) {
-        eventDao.insertEvent(event);
+    public LiveData<List<Event>> getAllEvents() {
+        return allEvents;
     }
 
-    public LiveData<List<Event>> getAllEvents() {
-        return eventDao.getAllEvents();
+    public void insert(Event event) {
+        DrinksDatabase.databaseWriteExecutor.execute(() -> {
+            eventDao.insertEvent(event);
+        });
     }
+
+    public void update(Event event) {
+        DrinksDatabase.databaseWriteExecutor.execute(() -> {
+            eventDao.updateEvent(event);
+        });
+    }
+
+    public void delete(Event event) {
+        DrinksDatabase.databaseWriteExecutor.execute(() -> {
+            eventDao.deleteEvent(event);
+        });
+    }
+
 }
