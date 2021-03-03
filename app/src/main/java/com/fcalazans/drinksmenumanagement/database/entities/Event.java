@@ -4,8 +4,6 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.Date;
-
 @Entity(tableName = "Event")
 public class Event {
     @PrimaryKey(autoGenerate = true)
@@ -17,12 +15,12 @@ public class Event {
     @ColumnInfo(name = "event_type")
     public String eventType;
     @ColumnInfo(name = "date_start")
-    public Date eventDateStart;
+    public String eventDateStart;
     @ColumnInfo(name = "date_end")
-    public Date eventDateEnd;
+    public String eventDateEnd;
 
 
-    public Event(String eventTitle, String eventDescription, String eventType, Date eventDateStart, Date eventDateEnd) {
+    public Event(String eventTitle, String eventDescription, String eventType, String eventDateStart, String eventDateEnd) {
         this.eventTitle = eventTitle;
         this.eventDescription = eventDescription;
         this.eventType = eventType;
