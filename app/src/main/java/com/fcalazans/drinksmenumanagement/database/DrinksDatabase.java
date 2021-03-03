@@ -12,6 +12,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.fcalazans.drinksmenumanagement.database.entities.Event;
 import com.fcalazans.drinksmenumanagement.database.entities.EventDao;
 
+import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -35,21 +36,21 @@ public abstract class DrinksDatabase extends RoomDatabase {
                 Event event1 = new Event("Event 1",
                         "Some Description",
                         "Wedding",
-                        "20210303",
-                        "20210303");
+                        new Date(),
+                        new Date());
                 dao.insertEvent(event1);
                 Event event2 = new Event("Event 2",
                         "Some Description",
                         "Business",
-                        "20210303",
-                        "20210303");
+                        new Date(),
+                        new Date());
                 dao.insertEvent(event2);
 
                 Event event3 = new Event("Event 3",
                         "Another Description",
                         "Cocktail",
-                        "20210303",
-                        "20210303");
+                        new Date(),
+                        new Date());
                 dao.insertEvent(event3);
             });
         }
