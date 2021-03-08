@@ -11,20 +11,20 @@ import java.util.Date;
 
 @Entity(tableName = "Event")
 public class Event {
-    @PrimaryKey(autoGenerate = true)
-    public int event_id;
     @ColumnInfo(name = "event_title")
-    public String eventTitle;
+    public final String eventTitle;
     @ColumnInfo(name = "event_description")
-    public String eventDescription;
+    public final String eventDescription;
     @ColumnInfo(name = "event_type")
-    public String eventType;
+    public final String eventType;
     @ColumnInfo(name = "date_start")
     @TypeConverters({DateConverter.class})
-    public Date eventDateStart;
+    public final Date eventDateStart;
     @ColumnInfo(name = "date_end")
     @TypeConverters({DateConverter.class})
-    public Date eventDateEnd;
+    public final Date eventDateEnd;
+    @PrimaryKey(autoGenerate = true)
+    public int event_id;
 
 
     public Event(String eventTitle, String eventDescription, String eventType, Date eventDateStart, Date eventDateEnd) {
