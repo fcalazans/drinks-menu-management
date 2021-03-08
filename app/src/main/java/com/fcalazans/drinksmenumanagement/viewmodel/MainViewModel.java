@@ -14,7 +14,7 @@ import java.util.List;
 public class MainViewModel extends AndroidViewModel {
 
     private final LiveData<List<Event>> allEvents;
-    private EventRepository eventRepository;
+    private final EventRepository eventRepository;
 
     public MainViewModel(@NonNull Application application) {
         super(application);
