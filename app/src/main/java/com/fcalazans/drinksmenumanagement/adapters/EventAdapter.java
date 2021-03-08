@@ -50,10 +50,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
 
     public static class EventViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textViewName;
-        TextView textViewStartDate;
-        TextView textViewEndDate;
-        TextView textViewDescription;
+        final TextView textViewName;
+        final TextView textViewStartDate;
+        final TextView textViewEndDate;
+        final TextView textViewDescription;
 
         public EventViewHolder(@NonNull View itemView) {
             super(itemView);
