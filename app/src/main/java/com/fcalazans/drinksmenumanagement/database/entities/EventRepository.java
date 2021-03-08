@@ -9,8 +9,8 @@ import com.fcalazans.drinksmenumanagement.database.DrinksDatabase;
 import java.util.List;
 
 public class EventRepository {
-    private EventDao eventDao;
-    private LiveData<List<Event>> allEvents;
+    private final EventDao eventDao;
+    private final LiveData<List<Event>> allEvents;
 
     public EventRepository(Application application) {
         DrinksDatabase drinksDatabase = DrinksDatabase.getInstance(application);
@@ -23,21 +23,15 @@ public class EventRepository {
     }
 
     public void insert(Event event) {
-        DrinksDatabase.databaseWriteExecutor.execute(() -> {
-            eventDao.insertEvent(event);
-        });
+        DrinksDatabase.databaseWriteExecutor.execute(() -> eventDao.insertEvent(event));
     }
 
     public void update(Event event) {
-        DrinksDatabase.databaseWriteExecutor.execute(() -> {
-            eventDao.updateEvent(event);
-        });
+        DrinksDatabase.databaseWriteExecutor.execute(() -> eventDao.updateEvent(event));
     }
 
     public void delete(Event event) {
-        DrinksDatabase.databaseWriteExecutor.execute(() -> {
-            eventDao.deleteEvent(event);
-        });
+        DrinksDatabase.databaseWriteExecutor.execute(() -> eventDao.deleteEvent(event));
     }
 
 }
