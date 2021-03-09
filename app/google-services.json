@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "291271374287",
+    "project_id": "drinks-menu-management",
+    "storage_bucket": "drinks-menu-management.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:291271374287:android:93b9b47b6ef598284dceba",
+        "android_client_info": {
+          "package_name": "com.fcalazans.drinksmenumanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "291271374287-kpgt5b1gspmgd874meudfo95cu1p8p97.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0wo9KWn52Y2kk0hxvvLrzlvlnfbq9J-M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "291271374287-kpgt5b1gspmgd874meudfo95cu1p8p97.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
