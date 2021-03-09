@@ -1,4 +1,4 @@
-package com.fcalazans.drinksmenumanagement.database;
+package com.fcalazans.drinksmenumanagement.database.converters;
 
 import androidx.room.TypeConverter;
 

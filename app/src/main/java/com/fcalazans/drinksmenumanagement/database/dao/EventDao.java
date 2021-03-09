@@ -1,4 +1,4 @@
-package com.fcalazans.drinksmenumanagement.database.entities;
+package com.fcalazans.drinksmenumanagement.database.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -7,6 +7,8 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
+
+import com.fcalazans.drinksmenumanagement.database.entities.Event;
 
 import java.util.List;
 

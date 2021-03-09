@@ -1,10 +1,12 @@
-package com.fcalazans.drinksmenumanagement.database.entities;
+package com.fcalazans.drinksmenumanagement.database.repository;
 
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
 import com.fcalazans.drinksmenumanagement.database.DrinksDatabase;
+import com.fcalazans.drinksmenumanagement.database.dao.EventDao;
+import com.fcalazans.drinksmenumanagement.database.entities.Event;
 
 import java.util.List;
 

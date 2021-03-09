@@ -9,8 +9,9 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.fcalazans.drinksmenumanagement.database.converters.DateConverter;
+import com.fcalazans.drinksmenumanagement.database.dao.EventDao;
 import com.fcalazans.drinksmenumanagement.database.entities.Event;
-import com.fcalazans.drinksmenumanagement.database.entities.EventDao;
 
 import java.util.Date;
 import java.util.concurrent.ExecutorService;
@@ -36,21 +37,21 @@ public abstract class DrinksDatabase extends RoomDatabase {
                 Event event1 = new Event("Event 1",
                         "Some Description",
                         "Wedding",
-                        new Date(),
-                        new Date());
+                        new Date(298508400000L),
+                        new Date(298508400000L));
                 dao.insertEvent(event1);
                 Event event2 = new Event("Event 2",
                         "Some Description",
                         "Business",
-                        new Date(),
-                        new Date());
+                        new Date(330130800000L),
+                        new Date(330130800000L));
                 dao.insertEvent(event2);
 
                 Event event3 = new Event("Event 3",
                         "Another Description",
                         "Cocktail",
-                        new Date(),
-                        new Date());
+                        new Date(361666800000L),
+                        new Date(361666800000L));
                 dao.insertEvent(event3);
             });
         }

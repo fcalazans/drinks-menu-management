@@ -7,7 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.fcalazans.drinksmenumanagement.database.entities.Event;
-import com.fcalazans.drinksmenumanagement.database.entities.EventRepository;
+import com.fcalazans.drinksmenumanagement.database.repository.EventRepository;
 
 import java.util.List;
 

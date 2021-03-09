@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         final EventAdapter adapter = new EventAdapter();
         recyclerView.setAdapter(adapter);
 
-
         eventViewModel = new MainViewModel(getApplication());
         eventViewModel.getAllEvents().observe(this, adapter::setEvents);
     }
