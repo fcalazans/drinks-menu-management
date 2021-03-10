@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Glass")
+@Entity(tableName = "glass")
 public class Glass {
     @PrimaryKey(autoGenerate = true)
     public int glass_id;
@@ -17,5 +17,11 @@ public class Glass {
 
     @ColumnInfo(name = "glass_size")
     public String glassSize;
+
+    @ColumnInfo(name = "glass_size_ml")
+    public String glassSizeMl;
+
+    @ColumnInfo(name = "glass_img")
+    public String glassImg;
 
 }

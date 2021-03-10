@@ -9,7 +9,7 @@ import com.fcalazans.drinksmenumanagement.database.converters.DateConverter;
 
 import java.util.Date;
 
-@Entity(tableName = "Event")
+@Entity(tableName = "event")
 public class Event {
     @ColumnInfo(name = "event_title")
     public final String eventTitle;
@@ -17,10 +17,10 @@ public class Event {
     public final String eventDescription;
     @ColumnInfo(name = "event_type")
     public final String eventType;
-    @ColumnInfo(name = "date_start")
+    @ColumnInfo(name = "start_date")
     @TypeConverters({DateConverter.class})
     public final Date eventDateStart;
-    @ColumnInfo(name = "date_end")
+    @ColumnInfo(name = "end_date")
     @TypeConverters({DateConverter.class})
     public final Date eventDateEnd;
     @PrimaryKey(autoGenerate = true)
