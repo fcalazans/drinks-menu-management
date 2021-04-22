@@ -18,11 +18,13 @@ public class EventRepository {
         DrinksDatabase drinksDatabase = DrinksDatabase.getInstance(application);
         eventDao = drinksDatabase.eventDao();
         allEvents = eventDao.getAllEvents();
+
     }
 
     public LiveData<List<Event>> getAllEvents() {
         return allEvents;
     }
+
 
     public void insert(Event event) {
         DrinksDatabase.databaseWriteExecutor.execute(() -> eventDao.insertEvent(event));
