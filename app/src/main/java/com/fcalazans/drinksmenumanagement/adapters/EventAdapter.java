@@ -31,8 +31,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
 
         Event currentEvent = events.get(position);
         holder.textViewName.setText(currentEvent.eventTitle);
-        holder.textViewStartDate.setText(currentEvent.eventDateStart.toString());
-        holder.textViewEndDate.setText(currentEvent.eventDateEnd.toString());
+        holder.textViewStartDate.setText(currentEvent.eventDateStart);
+        holder.textViewEndDate.setText(currentEvent.eventDateEnd);
         holder.textViewDescription.setText(currentEvent.eventDescription);
 
     }
