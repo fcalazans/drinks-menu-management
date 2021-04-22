@@ -15,7 +15,7 @@ import java.util.List;
 @Dao
 public interface EventDao {
 
-    @Query("SELECT * FROM Event ORDER BY date_start DESC")
+    @Query("SELECT * FROM event ORDER BY start_date DESC")
     LiveData<List<Event>> getAllEvents();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -26,5 +26,6 @@ public interface EventDao {
 
     @Delete
     void deleteEvent(Event event);
+
 
 }
