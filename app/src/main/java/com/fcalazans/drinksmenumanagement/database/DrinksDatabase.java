@@ -10,14 +10,45 @@ import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.fcalazans.drinksmenumanagement.database.converters.DateConverter;
+import com.fcalazans.drinksmenumanagement.database.dao.CategoryDao;
 import com.fcalazans.drinksmenumanagement.database.dao.EventDao;
+import com.fcalazans.drinksmenumanagement.database.dao.EventMenuCrossRefDao;
+import com.fcalazans.drinksmenumanagement.database.dao.GarnishDao;
+import com.fcalazans.drinksmenumanagement.database.dao.IngredientDao;
+import com.fcalazans.drinksmenumanagement.database.dao.InstructionDao;
+import com.fcalazans.drinksmenumanagement.database.dao.MenuDao;
+import com.fcalazans.drinksmenumanagement.database.dao.RecipeDao;
+import com.fcalazans.drinksmenumanagement.database.dao.UnitDao;
+import com.fcalazans.drinksmenumanagement.database.entities.Category;
 import com.fcalazans.drinksmenumanagement.database.entities.Event;
+import com.fcalazans.drinksmenumanagement.database.entities.EventMenuCrossRef;
+import com.fcalazans.drinksmenumanagement.database.entities.Garnish;
+import com.fcalazans.drinksmenumanagement.database.entities.Glass;
+import com.fcalazans.drinksmenumanagement.database.entities.Ingredient;
+import com.fcalazans.drinksmenumanagement.database.entities.Instruction;
+import com.fcalazans.drinksmenumanagement.database.entities.LiquorCabinet;
+import com.fcalazans.drinksmenumanagement.database.entities.Menu;
+import com.fcalazans.drinksmenumanagement.database.entities.Recipe;
+import com.fcalazans.drinksmenumanagement.database.entities.Unit;
 
-import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Event.class}, version = 1)
+@Database(entities = {
+        Category.class,
+        Event.class,
+        EventMenuCrossRef.class,
+        Garnish.class,
+        Glass.class,
+        Ingredient.class,
+        Instruction.class,
+        LiquorCabinet.class,
+        Menu.class,
+        Recipe.class,
+        Unit.class
+},
+        version = 1, exportSchema = false)
+
 @TypeConverters(DateConverter.class)
 public abstract class DrinksDatabase extends RoomDatabase {
 
@@ -37,21 +68,21 @@ public abstract class DrinksDatabase extends RoomDatabase {
                 Event event1 = new Event("Event 1",
                         "Some Description",
                         "Wedding",
-                        new Date(298508400000L),
-                        new Date(298508400000L));
+                        "197906181900",
+                        "197906182200");
                 dao.insertEvent(event1);
                 Event event2 = new Event("Event 2",
                         "Some Description",
                         "Business",
-                        new Date(330130800000L),
-                        new Date(330130800000L));
+                        "198006181900",
+                        "198006182200");
                 dao.insertEvent(event2);
 
                 Event event3 = new Event("Event 3",
                         "Another Description",
                         "Cocktail",
-                        new Date(361666800000L),
-                        new Date(361666800000L));
+                        "20213011900",
+                        "202103012300");
                 dao.insertEvent(event3);
             });
         }
@@ -74,6 +105,22 @@ public abstract class DrinksDatabase extends RoomDatabase {
     // public abstract IngredientDao ingredientDao();
     // public abstract RecipeDao recipeDao();
 
+    public abstract CategoryDao categoryDao();
+
     public abstract EventDao eventDao();
+
+    public abstract EventMenuCrossRefDao eventMenuCrossRefDao();
+
+    public abstract GarnishDao garnishDao();
+
+    public abstract IngredientDao ingredientDao();
+
+    public abstract InstructionDao instructionDao();
+
+    public abstract MenuDao menuDao();
+
+    public abstract RecipeDao recipeDao();
+
+    public abstract UnitDao unitDao();
 
 }
