@@ -7,8 +7,6 @@ import androidx.room.TypeConverters;
 
 import com.fcalazans.drinksmenumanagement.database.converters.DateConverter;
 
-import java.util.Date;
-
 @Entity(tableName = "event")
 public class Event {
     @ColumnInfo(name = "event_title")
@@ -19,15 +17,15 @@ public class Event {
     public final String eventType;
     @ColumnInfo(name = "start_date")
     @TypeConverters({DateConverter.class})
-    public final Date eventDateStart;
+    public final String eventDateStart;
     @ColumnInfo(name = "end_date")
     @TypeConverters({DateConverter.class})
-    public final Date eventDateEnd;
+    public final String eventDateEnd;
     @PrimaryKey(autoGenerate = true)
     public int event_id;
 
 
-    public Event(String eventTitle, String eventDescription, String eventType, Date eventDateStart, Date eventDateEnd) {
+    public Event(String eventTitle, String eventDescription, String eventType, String eventDateStart, String eventDateEnd) {
         this.eventTitle = eventTitle;
         this.eventDescription = eventDescription;
         this.eventType = eventType;
