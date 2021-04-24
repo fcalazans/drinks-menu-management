@@ -1,13 +1,12 @@
 package com.fcalazans.drinksmenumanagement;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.fcalazans.drinksmenumanagement.viewmodel.MainViewModel;
+import androidx.cardview.widget.CardView;
 
 public class MainActivity extends AppCompatActivity {
-    MainViewModel eventViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,16 +15,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         getSupportActionBar().hide();
-//
-//        startActivity(new Intent(this, Activity.class));
-//        RecyclerView recyclerView = findViewById(R.id.event_list);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        recyclerView.setHasFixedSize(true);
-//
-//        final EventAdapter adapter = new EventAdapter();
-//        recyclerView.setAdapter(adapter);
-//
-//        eventViewModel = new MainViewModel(getApplication());
-//        eventViewModel.getAllEvents().observe(this, adapter::setEvents);
+
+        CardView drinks = findViewById(R.id.drinks);
+        CardView menus = findViewById(R.id.menus);
+        CardView events = findViewById(R.id.events);
+
+        drinks.setOnClickListener(v -> openDrinksActivity());
+
+        menus.setOnClickListener(v -> openMenusActivity());
+
+        events.setOnClickListener(v -> openEventsActivity());
+
+    }
+
+    private void openDrinksActivity() {
+        Intent intent = new Intent(this, MainActivity2.class);
+        startActivity(intent);
+    }
+
+    private void openMenusActivity() {
+        Intent intent = new Intent(this, MainActivity2.class);
+        startActivity(intent);
+    }
+
+    private void openEventsActivity() {
+        Intent intent = new Intent(this, MainActivity2.class);
+        startActivity(intent);
     }
 }
