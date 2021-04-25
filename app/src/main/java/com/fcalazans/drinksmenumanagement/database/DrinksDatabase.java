@@ -55,38 +55,38 @@ public abstract class DrinksDatabase extends RoomDatabase {
     private static final int NUMBER_OF_THREADS = 4;
     public static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
-    private static volatile DrinksDatabase INSTANCE;
     private static final RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
 
-            databaseWriteExecutor.execute(() -> {
-
-                EventDao dao = INSTANCE.eventDao();
-
-                Event event1 = new Event("Event 1",
-                        "Some Description",
-                        "Wedding",
-                        "197906181900",
-                        "197906182200");
-                dao.insertEvent(event1);
-                Event event2 = new Event("Event 2",
-                        "Some Description",
-                        "Business",
-                        "198006181900",
-                        "198006182200");
-                dao.insertEvent(event2);
-
-                Event event3 = new Event("Event 3",
-                        "Another Description",
-                        "Cocktail",
-                        "20213011900",
-                        "202103012300");
-                dao.insertEvent(event3);
-            });
+//            databaseWriteExecutor.execute(() -> {
+//
+//                EventDao dao = INSTANCE.eventDao();
+//
+//                Event event1 = new Event("Event 1",
+//                        "Some Description",
+//                        "Wedding",
+//                        "197906181900",
+//                        "197906182200");
+//                dao.insertEvent(event1);
+//                Event event2 = new Event("Event 2",
+//                        "Some Description",
+//                        "Business",
+//                        "198006181900",
+//                        "198006182200");
+//                dao.insertEvent(event2);
+//
+//                Event event3 = new Event("Event 3",
+//                        "Another Description",
+//                        "Cocktail",
+//                        "20213011900",
+//                        "202103012300");
+//                dao.insertEvent(event3);
+//            });
         }
     };
+    private static volatile DrinksDatabase INSTANCE;
 
     public static DrinksDatabase getInstance(Context context) {
 
@@ -94,6 +94,7 @@ public abstract class DrinksDatabase extends RoomDatabase {
             synchronized (DrinksDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(), DrinksDatabase.class, "drinks.db")
+                            .createFromAsset("database/drinksDB_2021.db")
                             .addCallback(sRoomDatabaseCallback)
                             .build();
                 }
