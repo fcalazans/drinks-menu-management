@@ -15,8 +15,8 @@ public class Ingredient {
     @ColumnInfo(name = "description")
     public String ingredientDescription;
 
-    @ColumnInfo(name = "category")
-    public String ingredientCategory;
+//    @ColumnInfo(name = "category") //First need to add to database Ingredient Categories.
+//    public String ingredientCategory;
 
     @ColumnInfo(name = "ingredient_img")
     public String ingredientImg;
