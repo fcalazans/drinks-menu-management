@@ -1,5 +1,6 @@
 package com.fcalazans.drinksmenumanagement.database.entities;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -10,6 +11,7 @@ public class Garnish {
     public int garnish_id;
 
     @ColumnInfo(name = "garnish_name")
+    @NonNull
     public String garnishName;
 
 }
