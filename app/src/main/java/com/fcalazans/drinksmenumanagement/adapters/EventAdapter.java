@@ -20,7 +20,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
     @NonNull
     @Override
     public EventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View iTemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_row,
+        View iTemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_layout_row,
                 parent, false);
 
         return new EventViewHolder(iTemView);
