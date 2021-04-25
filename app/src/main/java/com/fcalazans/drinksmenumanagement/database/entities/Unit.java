@@ -1,5 +1,6 @@
 package com.fcalazans.drinksmenumanagement.database.entities;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -10,6 +11,7 @@ public class Unit {
     public int unit_id;
 
     @ColumnInfo(name = "unit_name")
+    @NonNull
     public String unitName;
 
 }
