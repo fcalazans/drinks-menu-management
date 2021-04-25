@@ -15,7 +15,7 @@ import java.util.List;
 @Dao
 public interface MenuDao {
 
-    @Query("SELECT * FROM menu ORDER BY menu_name ASC")
+    @Query("SELECT * FROM menu ORDER BY menu_id DESC")
     LiveData<List<Menu>> getAllMenus();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
