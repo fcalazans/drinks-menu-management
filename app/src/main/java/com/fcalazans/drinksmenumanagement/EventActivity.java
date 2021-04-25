@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.fcalazans.drinksmenumanagement.adapters.EventAdapter;
 import com.fcalazans.drinksmenumanagement.viewmodel.MainViewModel;
 
-public class MainActivity2 extends AppCompatActivity {
+public class EventActivity extends AppCompatActivity {
     MainViewModel eventViewModel;
 
     @Override
@@ -17,7 +17,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTheme(R.style.Theme_DrinksMenuManagement);
 
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_event);
 
         RecyclerView recyclerView = findViewById(R.id.event_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
