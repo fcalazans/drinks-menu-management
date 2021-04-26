@@ -10,7 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/splashScreenTheme">
-        <activity android:name=".RecipeDetailActivity"></activity>
+        <activity
+            android:name=".RecipeDetailActivity"
+            android:label="RecipeDetail"
+            android:parentActivityName=".RecipeActivity" />
         <activity android:name=".EventActivity" />
         <activity android:name=".RecipeActivity" />
         <activity android:name=".MenuActivity" />
