@@ -38,4 +38,8 @@ public class RecipeRepository {
         DrinksDatabase.databaseWriteExecutor.execute(() -> recipeDao.deleteRecipe(recipe));
     }
 
+    public LiveData<List<Recipe>> searchDatabase(String searchQuery) {
+        return recipeDao.searchDatabase(searchQuery);
+    }
+
 }

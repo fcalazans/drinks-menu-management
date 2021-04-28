@@ -27,13 +27,7 @@ public interface RecipeDao {
     @Delete
     void deleteRecipe(Recipe recipe);
 
-//    @Transaction
-//    @Query("SELECT * FROM Category")
-//    LiveData<List<EventWithRecipe>> getEventWithRecipe();
-//
-//    @Transaction
-//    @Query("SELECT * FROM Recipe")
-//    LiveData<List<RecipeWithEvent>> getRecipeWithEvent();
-
+    @Query("SELECT * FROM recipe WHERE recipe_name LIKE :searchQuery OR recipe_description LIKE :searchQuery")
+    LiveData<List<Recipe>> searchDatabase(String searchQuery);
 
 }

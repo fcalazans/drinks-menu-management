@@ -97,5 +97,7 @@ public class MainViewModel extends AndroidViewModel {
         recipeRepository.delete(recipe);
     }
 
-
+    public LiveData<List<Recipe>> searchDatabase(String searchQuery) {
+        return recipeRepository.searchDatabase(searchQuery);
+    }
 }

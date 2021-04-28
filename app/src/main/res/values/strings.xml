@@ -4,4 +4,7 @@
     <string name="event_startDate">Start Date</string>
     <string name="event_endDate">End Date</string>
     <string name="event_description">Description</string>
+    <string name="search">search</string>
+    <string name="drink_name">Drink Name</string>
+    <string name="description">Description</string>
 </resources>
