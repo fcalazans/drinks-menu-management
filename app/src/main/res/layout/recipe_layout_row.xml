@@ -3,12 +3,12 @@
     android:id="@+id/recipeLayoutRow"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_margin="3dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:padding="6dp">
 
         <TextView
             android:id="@+id/recipe_name"
@@ -17,7 +17,7 @@
             android:layout_alignParentStart="true"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Drink Name"
+            android:text="@string/drink_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 
@@ -29,7 +29,7 @@
             android:layout_marginTop="5dp"
             android:layout_toEndOf="@+id/recipe_name"
             android:ellipsize="end"
-            android:text="Description" />
+            android:text="@string/description" />
 
     </RelativeLayout>
 
