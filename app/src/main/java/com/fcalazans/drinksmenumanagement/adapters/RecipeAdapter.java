@@ -65,9 +65,6 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
 
                 @Override
                 public void onClick(View v) {
-                    int mPosition = getLayoutPosition();
-                    Recipe element = recipes.get(mPosition);
-
                     int position = getAbsoluteAdapterPosition();
                     if (listener != null && position != RecyclerView.NO_POSITION) {
                         listener.onItemClick(recipes.get(position));
