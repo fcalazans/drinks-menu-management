@@ -11,10 +11,10 @@ public class RecipeDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(R.style.Theme_DrinksMenuManagement);
-
         setContentView(R.layout.activity_recipe_detail);
 
         String intentRecipeName = getIntent().getStringExtra("recipe_name");
+        getSupportActionBar().setTitle(intentRecipeName);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
