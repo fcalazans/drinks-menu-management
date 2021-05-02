@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.fcalazans.drinksmenumanagement.database.converters.DateConverter;
+import com.fcalazans.drinksmenumanagement.database.converters.ViewConverter;
 import com.fcalazans.drinksmenumanagement.database.dao.CategoryDao;
 import com.fcalazans.drinksmenumanagement.database.dao.EventDao;
 import com.fcalazans.drinksmenumanagement.database.dao.EventMenuCrossRefDao;
@@ -49,7 +49,7 @@ import java.util.concurrent.Executors;
 },
         version = 1, exportSchema = false)
 
-@TypeConverters(DateConverter.class)
+@TypeConverters(ViewConverter.class)
 public abstract class DrinksDatabase extends RoomDatabase {
 
     private static final int NUMBER_OF_THREADS = 4;
