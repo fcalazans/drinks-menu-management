@@ -15,6 +15,9 @@ public class RecipeDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recipe_detail);
 
         String intentRecipeName = getIntent().getStringExtra("recipe_name");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         String intentRecipeDescription = getIntent().getStringExtra("recipe_description");
 
         TextView recipeName = findViewById(R.id.recipe_name);
@@ -23,5 +26,12 @@ public class RecipeDetailActivity extends AppCompatActivity {
         recipeName.setText(intentRecipeName);
         recipeDescription.setText(intentRecipeDescription);
 
+    }
+
+    // Allow activity come back to parent with state.
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
