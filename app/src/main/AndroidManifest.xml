@@ -14,13 +14,18 @@
             android:name=".RecipeDetailActivity"
             android:label="RecipeDetail"
             android:parentActivityName=".RecipeActivity" />
-        <activity android:name=".EventActivity" />
-        <activity android:name=".RecipeActivity" />
-        <activity android:name=".MenuActivity" />
+        <activity
+            android:name=".EventActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".RecipeActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".MenuActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
