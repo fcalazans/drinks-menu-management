@@ -30,9 +30,8 @@ public interface MenuDao {
 //    @Transaction
 //    @Query("SELECT * FROM Category")
 //    LiveData<List<EventWithMenu>> getEventWithMenu();
-//
-//    @Transaction
-//    @Query("SELECT * FROM Menu")
-//    LiveData<List<MenuWithEvent>> getMenuWithEvent();
+
+    @Query("SELECT * FROM menu WHERE menu_name LIKE :searchQuery")
+    LiveData<List<Menu>> searchMenuDatabase(String searchQuery);
 
 }

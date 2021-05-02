@@ -80,6 +80,10 @@ public class MainViewModel extends AndroidViewModel {
         menuRepository.delete(menu);
     }
 
+    public LiveData<List<Menu>> searchMenuDatabase(String searchQuery) {
+        return menuRepository.searchMenuDatabase(searchQuery);
+    }
+
     // RECIPES
     public LiveData<List<Recipe>> getAllRecipes() {
         return allRecipes;

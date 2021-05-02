@@ -15,6 +15,10 @@
             android:label="RecipeDetail"
             android:parentActivityName=".RecipeActivity" />
         <activity
+            android:name=".MenuDetailActivity"
+            android:label="MenuDetail"
+            android:parentActivityName=".MenuActivity" />
+        <activity
             android:name=".EventActivity"
             android:parentActivityName=".MainActivity" />
         <activity

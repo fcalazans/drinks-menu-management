@@ -38,4 +38,8 @@ public class MenuRepository {
         DrinksDatabase.databaseWriteExecutor.execute(() -> menuDao.deleteMenu(menu));
     }
 
+    public LiveData<List<Menu>> searchMenuDatabase(String searchQuery) {
+        return menuDao.searchMenuDatabase(searchQuery);
+
+    }
 }
