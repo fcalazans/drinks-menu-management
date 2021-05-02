@@ -6,7 +6,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
-import com.fcalazans.drinksmenumanagement.database.converters.DateConverter;
+import com.fcalazans.drinksmenumanagement.database.converters.ViewConverter;
 
 @Entity(tableName = "event")
 public class Event {
@@ -20,10 +20,10 @@ public class Event {
     @ColumnInfo(name = "event_type")
     public final String eventType;
     @ColumnInfo(name = "start_date")
-    @TypeConverters({DateConverter.class})
+    @TypeConverters({ViewConverter.class})
     public final String eventDateStart;
     @ColumnInfo(name = "end_date")
-    @TypeConverters({DateConverter.class})
+    @TypeConverters({ViewConverter.class})
     public final String eventDateEnd;
     @PrimaryKey(autoGenerate = true)
     public int event_id;
