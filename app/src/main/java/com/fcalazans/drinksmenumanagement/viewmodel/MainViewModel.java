@@ -63,6 +63,10 @@ public class MainViewModel extends AndroidViewModel {
         eventRepository.delete(event);
     }
 
+    public LiveData<List<Event>> searchEventDatabase(String searchQuery) {
+        return eventRepository.searchEventDatabase(searchQuery);
+    }
+
     // MENUS
     public LiveData<List<Menu>> getAllMenus() {
         return allMenus;

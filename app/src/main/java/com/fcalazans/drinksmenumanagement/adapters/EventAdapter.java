@@ -16,25 +16,23 @@ import java.util.List;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
     private List<Event> events = new ArrayList<>();
+    private OnEventListener listener;
 
     @NonNull
     @Override
     public EventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View iTemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_layout_row,
                 parent, false);
-
         return new EventViewHolder(iTemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
-
         Event currentEvent = events.get(position);
         holder.textViewName.setText(currentEvent.eventTitle);
         holder.textViewStartDate.setText(currentEvent.eventDateStart);
         holder.textViewEndDate.setText(currentEvent.eventDateEnd);
         holder.textViewDescription.setText(currentEvent.eventDescription);
-
     }
 
     @Override
@@ -47,9 +45,16 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         notifyDataSetChanged();
     }
 
+    public void setOnEventListener(OnEventListener listener) {
+        this.listener = listener;
+    }
 
-    public static class EventViewHolder extends RecyclerView.ViewHolder {
+    public interface OnEventListener {
+        void onItemClick(Event event);
+    }
 
+    // Static removed for testing.
+    public class EventViewHolder extends RecyclerView.ViewHolder {
         final TextView textViewName;
         final TextView textViewStartDate;
         final TextView textViewEndDate;
@@ -57,12 +62,20 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
 
         public EventViewHolder(@NonNull View itemView) {
             super(itemView);
-
             textViewName = itemView.findViewById(R.id.event_name);
             textViewStartDate = itemView.findViewById(R.id.event_startDate);
             textViewEndDate = itemView.findViewById(R.id.event_endDate);
             textViewDescription = itemView.findViewById(R.id.event_description);
+            itemView.setOnClickListener(new View.OnClickListener() {
 
+                @Override
+                public void onClick(View v) {
+                    int position = getAbsoluteAdapterPosition();
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(events.get(position));
+                    }
+                }
+            });
         }
     }
 }

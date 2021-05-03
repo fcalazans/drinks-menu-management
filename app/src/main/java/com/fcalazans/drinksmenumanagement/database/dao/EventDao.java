@@ -27,5 +27,6 @@ public interface EventDao {
     @Delete
     void deleteEvent(Event event);
 
-
+    @Query("SELECT * FROM event WHERE event_title LIKE :searchQuery OR event_description LIKE :searchQuery")
+    LiveData<List<Event>> searchEventDatabase(String searchQuery);
 }

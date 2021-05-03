@@ -38,4 +38,9 @@ public class EventRepository {
         DrinksDatabase.databaseWriteExecutor.execute(() -> eventDao.deleteEvent(event));
     }
 
+    public LiveData<List<Event>> searchEventDatabase(String searchQuery) {
+        return eventDao.searchEventDatabase(searchQuery);
+
+    }
+
 }
