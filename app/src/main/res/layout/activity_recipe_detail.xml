@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="8dp"
-        android:text="Description"
+        android:text="@string/description"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/recipe_image"
         app:layout_constraintHorizontal_bias="0.0"
