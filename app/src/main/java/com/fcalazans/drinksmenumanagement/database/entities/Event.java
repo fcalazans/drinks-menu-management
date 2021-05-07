@@ -29,7 +29,7 @@ public class Event {
     public int event_id;
 
 
-    public Event(String eventTitle, String eventDescription, String eventLocation, String eventType, String eventDateStart, String eventDateEnd) {
+    public Event(@NonNull String eventTitle, String eventDescription, String eventLocation, String eventType, String eventDateStart, String eventDateEnd) {
         this.eventTitle = eventTitle;
         this.eventDescription = eventDescription;
         this.eventType = eventType;
