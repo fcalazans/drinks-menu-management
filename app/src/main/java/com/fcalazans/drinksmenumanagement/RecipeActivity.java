@@ -1,12 +1,17 @@
 package com.fcalazans.drinksmenumanagement;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +29,11 @@ public class RecipeActivity extends AppCompatActivity implements SearchView.OnQu
         setTheme(R.style.Theme_DrinksMenuManagement);
 
         setContentView(R.layout.activity_recipe);
+
+        // Set title page name.
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Drinks List");
+        }
 
         RecyclerView recyclerView = findViewById(R.id.recipe_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -47,6 +57,35 @@ public class RecipeActivity extends AppCompatActivity implements SearchView.OnQu
                 startActivity(intent);
             }
         });
+
+        // Swipe to delete functionality.
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                new AlertDialog.Builder(viewHolder.itemView.getContext())
+                        .setMessage("Are you sure to delete " + adapter.getRecipeAt(viewHolder.getAbsoluteAdapterPosition()).recipeName + " ?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                recipeViewModel.delete(adapter.getRecipeAt(viewHolder.getAbsoluteAdapterPosition()));
+                                Toast.makeText(RecipeActivity.this, "Recipe Deleted!", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                adapter.notifyDataSetChanged();
+                            }
+                        })
+                        .create()
+                        .show();
+            }
+        }).attachToRecyclerView(recyclerView);
     }
 
     @Override
@@ -59,36 +98,18 @@ public class RecipeActivity extends AppCompatActivity implements SearchView.OnQu
 
         searchView.setSubmitButtonEnabled(true);
         searchView.setOnQueryTextListener(this);
-
         return true;
     }
 
-    /**
-     * Called when the user submits the query. This could be due to a key press on the
-     * keyboard or due to pressing a submit button.
-     * The listener can override the standard behavior by returning true
-     * to indicate that it has handled the submit request. Otherwise return false to
-     * let the SearchView handle the submission by launching any associated intent.
-     *
-     * @param query the query text that is to be submitted
-     * @return true if the query has been handled by the listener, false to let the
-     * SearchView perform the default action.
-     */
     @Override
     public boolean onQueryTextSubmit(String query) {
-        if (query != null) {
-            searchDatabase(query);
-        }
+//        if (query != null) {
+//            searchDatabase(query);
+//            recipeViewModel.searchDatabase(query).getValue();
+//        }
         return true;
     }
 
-    /**
-     * Called when the query text is changed by the user.
-     *
-     * @param query the new content of the query text field.
-     * @return false if the SearchView should perform the default action of showing any
-     * suggestions if available, true if the action was handled by the listener.
-     */
     @Override
     public boolean onQueryTextChange(String query) {
         if (query != null) {
