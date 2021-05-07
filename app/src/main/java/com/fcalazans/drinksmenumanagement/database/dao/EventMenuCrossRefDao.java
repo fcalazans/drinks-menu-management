@@ -14,7 +14,7 @@ import java.util.List;
 @Dao
 public interface EventMenuCrossRefDao {
 
-    @Query("SELECT * FROM eventmenucrossref")
+    @Query("SELECT * FROM event_menu")
     LiveData<List<EventMenuCrossRef>> getAllEventMenuCrossRef();
 
 
