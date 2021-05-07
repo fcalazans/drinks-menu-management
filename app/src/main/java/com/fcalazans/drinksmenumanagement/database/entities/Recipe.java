@@ -12,7 +12,7 @@ import androidx.room.PrimaryKey;
                 parentColumns = "glass_id",
                 childColumns = "glass_id",
                 onDelete = ForeignKey.NO_ACTION,
-                onUpdate = ForeignKey.NO_ACTION)
+                onUpdate = ForeignKey.CASCADE)
         },
         indices = {@Index(value = {"glass_id"})}
 )
