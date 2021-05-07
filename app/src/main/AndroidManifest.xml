@@ -19,9 +19,10 @@
             </intent-filter>
         </activity>
 
-        <!-- Recipe -->
+        <!-- Recipe (orientation|screenSize not change in rotation = android:configChanges="orientation|screenSize") -->
         <activity
             android:name=".RecipeActivity"
+
             android:parentActivityName=".MainActivity" />
 
         <activity
