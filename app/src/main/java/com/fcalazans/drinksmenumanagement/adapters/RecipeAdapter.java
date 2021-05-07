@@ -44,6 +44,10 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
         notifyDataSetChanged();
     }
 
+    public Recipe getRecipeAt(int position) {
+        return recipes.get(position);
+    }
+
     public void setOnRecipeListener(OnRecipeListener listener) {
         this.listener = listener;
     }
