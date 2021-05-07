@@ -14,7 +14,8 @@ public class RecipeDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recipe_detail);
 
         String intentRecipeName = getIntent().getStringExtra("recipe_name");
-        getSupportActionBar().setTitle(intentRecipeName);
+        if (getSupportActionBar() != null) getSupportActionBar().setTitle(intentRecipeName);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
