@@ -14,9 +14,12 @@ import com.fcalazans.drinksmenumanagement.database.dao.CategoryDao;
 import com.fcalazans.drinksmenumanagement.database.dao.EventDao;
 import com.fcalazans.drinksmenumanagement.database.dao.EventMenuCrossRefDao;
 import com.fcalazans.drinksmenumanagement.database.dao.GarnishDao;
+import com.fcalazans.drinksmenumanagement.database.dao.GlassDao;
 import com.fcalazans.drinksmenumanagement.database.dao.IngredientDao;
 import com.fcalazans.drinksmenumanagement.database.dao.InstructionDao;
+import com.fcalazans.drinksmenumanagement.database.dao.LiquorCabinetDao;
 import com.fcalazans.drinksmenumanagement.database.dao.MenuDao;
+import com.fcalazans.drinksmenumanagement.database.dao.MenuRecipeCrossRefDao;
 import com.fcalazans.drinksmenumanagement.database.dao.RecipeDao;
 import com.fcalazans.drinksmenumanagement.database.dao.UnitDao;
 import com.fcalazans.drinksmenumanagement.database.entities.Category;
@@ -28,7 +31,12 @@ import com.fcalazans.drinksmenumanagement.database.entities.Ingredient;
 import com.fcalazans.drinksmenumanagement.database.entities.Instruction;
 import com.fcalazans.drinksmenumanagement.database.entities.LiquorCabinet;
 import com.fcalazans.drinksmenumanagement.database.entities.Menu;
+import com.fcalazans.drinksmenumanagement.database.entities.MenuRecipeCrossRef;
 import com.fcalazans.drinksmenumanagement.database.entities.Recipe;
+import com.fcalazans.drinksmenumanagement.database.entities.RecipeCategoryCrossRef;
+import com.fcalazans.drinksmenumanagement.database.entities.RecipeGarnishCrossRef;
+import com.fcalazans.drinksmenumanagement.database.entities.RecipeIngredientCrossRef;
+import com.fcalazans.drinksmenumanagement.database.entities.RecipeInstructionCrossRef;
 import com.fcalazans.drinksmenumanagement.database.entities.Unit;
 
 import java.util.concurrent.ExecutorService;
@@ -44,7 +52,12 @@ import java.util.concurrent.Executors;
         Instruction.class,
         LiquorCabinet.class,
         Menu.class,
+        MenuRecipeCrossRef.class,
         Recipe.class,
+        RecipeCategoryCrossRef.class,
+        RecipeGarnishCrossRef.class,
+        RecipeIngredientCrossRef.class,
+        RecipeInstructionCrossRef.class,
         Unit.class
 },
         version = 1, exportSchema = false)
@@ -60,30 +73,6 @@ public abstract class DrinksDatabase extends RoomDatabase {
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
 
-//            databaseWriteExecutor.execute(() -> {
-//
-//                EventDao dao = INSTANCE.eventDao();
-//
-//                Event event1 = new Event("Event 1",
-//                        "Some Description",
-//                        "Wedding",
-//                        "197906181900",
-//                        "197906182200");
-//                dao.insertEvent(event1);
-//                Event event2 = new Event("Event 2",
-//                        "Some Description",
-//                        "Business",
-//                        "198006181900",
-//                        "198006182200");
-//                dao.insertEvent(event2);
-//
-//                Event event3 = new Event("Event 3",
-//                        "Another Description",
-//                        "Cocktail",
-//                        "20213011900",
-//                        "202103012300");
-//                dao.insertEvent(event3);
-//            });
         }
     };
     private static volatile DrinksDatabase INSTANCE;
@@ -103,8 +92,6 @@ public abstract class DrinksDatabase extends RoomDatabase {
         }
         return INSTANCE;
     }
-    // public abstract IngredientDao ingredientDao();
-    // public abstract RecipeDao recipeDao();
 
     public abstract CategoryDao categoryDao();
 
@@ -112,11 +99,17 @@ public abstract class DrinksDatabase extends RoomDatabase {
 
     public abstract EventMenuCrossRefDao eventMenuCrossRefDao();
 
+    public abstract MenuRecipeCrossRefDao MenuRecipeCrossRefDao();
+
     public abstract GarnishDao garnishDao();
+
+    public abstract GlassDao glassDao();
 
     public abstract IngredientDao ingredientDao();
 
     public abstract InstructionDao instructionDao();
+
+    public abstract LiquorCabinetDao liquorCabinetDao();
 
     public abstract MenuDao menuDao();
 
