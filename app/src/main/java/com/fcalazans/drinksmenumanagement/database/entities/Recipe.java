@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey;
         foreignKeys = {@ForeignKey(entity = Glass.class,
                 parentColumns = "glass_id",
                 childColumns = "glass_id",
-                onDelete = ForeignKey.NO_ACTION,
+                onDelete = ForeignKey.SET_NULL,
                 onUpdate = ForeignKey.CASCADE)
         },
         indices = {@Index(value = {"glass_id"})}
