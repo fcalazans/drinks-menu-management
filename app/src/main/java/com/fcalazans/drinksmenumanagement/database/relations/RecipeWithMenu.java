@@ -4,6 +4,7 @@ import androidx.room.Embedded;
 import androidx.room.Junction;
 import androidx.room.Relation;
 
+import com.fcalazans.drinksmenumanagement.database.entities.Menu;
 import com.fcalazans.drinksmenumanagement.database.entities.MenuRecipeCrossRef;
 import com.fcalazans.drinksmenumanagement.database.entities.Recipe;
 
@@ -18,6 +19,6 @@ public class RecipeWithMenu {
             entityColumn = "menu_id",
             associateBy = @Junction(MenuRecipeCrossRef.class)
     )
-    public List<Recipe> recipes;
+    public List<Menu> menus;
 
 }
