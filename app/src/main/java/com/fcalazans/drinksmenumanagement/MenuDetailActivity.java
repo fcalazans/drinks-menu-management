@@ -14,13 +14,13 @@ public class MenuDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu_detail);
 
         String intentRecipeName = getIntent().getStringExtra("menu_name");
-        getSupportActionBar().setTitle(intentRecipeName);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(intentRecipeName);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         TextView menuName = findViewById(R.id.menu_name);
         menuName.setText(intentRecipeName);
-
     }
 
     // Allow activity come back to parent with state.
