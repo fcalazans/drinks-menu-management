@@ -6,7 +6,7 @@ import androidx.room.ForeignKey;
 import androidx.room.Index;
 
 @Entity(tableName = "menu_recipe",
-        primaryKeys = {"recipe_id", "menu_id"},
+        primaryKeys = {"menu_id", "recipe_id"},
         foreignKeys = {
                 @ForeignKey(entity = Recipe.class,
                         parentColumns = "recipe_id",
@@ -22,10 +22,9 @@ import androidx.room.Index;
         indices = {@Index(value = {"menu_id"})}
 )
 public class MenuRecipeCrossRef {
+    @ColumnInfo(name = "menu_id")
+    public int menuId;
 
     @ColumnInfo(name = "recipe_id")
     public int recipeId;
-
-    @ColumnInfo(name = "menu_id")
-    public int menuId;
 }
