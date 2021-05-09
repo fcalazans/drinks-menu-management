@@ -10,46 +10,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/splashScreenTheme">
-
         <!-- MAIN -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Recipe (orientation|screenSize not change in rotation = android:configChanges="orientation|screenSize") -->
+        </activity> <!-- Recipe (orientation|screenSize not change in rotation = android:configChanges="orientation|screenSize") -->
         <activity
             android:name=".RecipeActivity"
-
             android:parentActivityName=".MainActivity" />
-
         <activity
             android:name=".RecipeDetailActivity"
             android:label="RecipeDetail"
-            android:parentActivityName=".RecipeActivity" />
-
-        <!-- Menu -->
+            android:parentActivityName=".RecipeActivity" /> <!-- Menu -->
         <activity
             android:name=".MenuActivity"
             android:parentActivityName=".MainActivity" />
-
         <activity
             android:name=".MenuDetailActivity"
             android:label="MenuDetail"
-            android:parentActivityName=".MenuActivity" />
-
-        <!-- Event -->
+            android:parentActivityName=".MenuActivity" /> <!-- Event -->
         <activity
             android:name=".EventActivity"
             android:parentActivityName=".MainActivity" />
-
         <activity
             android:name=".EventDetailActivity"
             android:label="EventDetail"
             android:parentActivityName=".EventActivity" />
-
 
         <meta-data
             android:name="preloaded_fonts"
