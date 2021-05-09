@@ -27,9 +27,8 @@ public interface GlassDao {
     @Delete
     void deleteGlass(Glass glass);
 
-//    @Transaction
-//    @Query("SELECT * FROM Category")
-//    LiveData<List<EventWithMenu>> getEventWithMenu();
+    @Query("SELECT * FROM glass WHERE glass_name LIKE :searchQuery OR glass_description LIKE :searchQuery")
+    LiveData<List<Glass>> searchDatabase(String searchQuery);
 //
 //    @Transaction
 //    @Query("SELECT * FROM Menu")
