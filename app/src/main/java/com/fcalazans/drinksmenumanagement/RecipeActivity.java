@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.fcalazans.drinksmenumanagement.adapters.RecipeAdapter;
 import com.fcalazans.drinksmenumanagement.database.entities.Recipe;
 import com.fcalazans.drinksmenumanagement.viewmodel.MainViewModel;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class RecipeActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     private final RecipeAdapter adapter = new RecipeAdapter();
@@ -34,6 +36,14 @@ public class RecipeActivity extends AppCompatActivity implements SearchView.OnQu
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Drinks List");
         }
+
+        FloatingActionButton fab = findViewById(R.id.button_add_recipe);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RecipeActivity.this, AddRecipeActivity.class));
+            }
+        });
 
         RecyclerView recyclerView = findViewById(R.id.recipe_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
