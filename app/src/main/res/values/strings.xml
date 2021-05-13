@@ -9,4 +9,7 @@
     <string name="description">Description</string>
     <string name="recipe_name">Recipe Name</string>
     <string name="select">select</string>
+    <string name="recipe_description">Recipe Description</string>
+    <string name="recipe_comments">Recipe Comments</string>
+    <string name="select_glass">Select glass</string>
 </resources>
